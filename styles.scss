@@ -1,0 +1,211 @@
+/*-- scss:defaults --*/
+
+// Fontes
+$font-family-sans-serif: "Noto Sans", sans-serif;
+$font-family-monospace: "JetBrains Mono", monospace;
+
+// Cores base Kanagawa
+$sumiInk-0: #16161D;
+$sumiInk-1: #1F1F28;
+$sumiInk-2: #2A2A37;
+$fujiWhite: #DCD7BA;
+$oldWhite: #C8C093;
+$springGreen: #98BB6C;
+$crystalBlue: #7E9CD8;
+$springBlue: #7FB4CA;
+$oniViolet: #957FB8;
+$sakuraPink: #D27E99;
+$autumnRed: #C34043;
+$roninYellow: #FF9E3B;
+$winterGreen: #2B3328;
+$winterYellow: #49443C;
+$winterBlue: #252535;
+$winterRed: #43242B;
+
+// Variáveis do Bootstrap e Quarto
+$body-bg: $sumiInk-0;
+$body-color: $fujiWhite;
+$link-color: $springGreen;
+$selection-bg: $winterBlue;
+$code-color: $springBlue;
+$code-bg: $winterGreen;
+
+// Cores de cabeçalhos
+$headings-color: $crystalBlue;
+
+// Cores da navegação
+$navbar-bg: $sumiInk-1;
+$navbar-fg: $oniViolet;
+$navbar-hl: $springBlue;
+
+// Cores do TOC (Table of Contents)
+$toc-color: $oldWhite;
+$toc-active-border: $springBlue;
+
+// code-blocks
+$code-block-border-left: $roninYellow;
+$code-block-bg: $winterYellow;
+
+/*-- scss:rules --*/
+
+// Estilo base
+body {
+  background-color: $body-bg;
+  color: $body-color;
+  line-height: 1.6;
+}
+
+// Links
+a {
+  color: $link-color;
+  text-decoration: none;
+  
+  &:hover {
+    color: $springBlue;
+    text-decoration: underline;
+  }
+  
+  &:visited {
+    color: $sakuraPink;
+  }
+}
+
+// Cabeçalhos
+h1, h2, h3, h4, h5, h6 {
+  color: $headings-color;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+// Barra de navegação
+.navbar {
+  border-bottom: 1px solid $sumiInk-2;
+  
+  .nav-link {
+    color: $navbar-fg !important;
+    
+    &:hover, &:focus {
+      color: $navbar-hl !important;
+    }
+  }
+}
+
+// Tabelas
+table {
+  margin: 2rem 0;
+  width: 100%;
+  
+  th {
+    background-color: $sumiInk-2;
+    border-bottom: 2px solid $winterBlue;
+  }
+  
+  tr:nth-child(even) {
+    background-color: $sumiInk-1;
+  }
+  
+  td, th {
+    padding: 0.5rem;
+    border: 1px solid $sumiInk-2;
+  }
+}
+
+// Código
+pre {
+  background-color: $code-bg;
+  border: 1px solid $winterYellow;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+code {
+  color: $code-color;
+  background-color: $code-bg;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+}
+
+// Citações
+blockquote {
+  border-left: 4px solid $springBlue;
+  background-color: $sumiInk-2;
+  padding: 1rem;
+  margin: 1rem 0;
+  color: $oldWhite;
+}
+
+// TOC (Table of Contents)
+.sidebar nav[role="doc-toc"] ul > li > a.active {
+  border-left: 1px solid $toc-active-border;
+  color: $springBlue !important;
+}
+
+.sidebar nav[role="doc-toc"] ul {
+  color: $toc-color;
+}
+
+// Imagens
+img {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+// Footer
+footer {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  background-color: $sumiInk-1;
+  color: $oldWhite;
+  
+  a {
+    color: $springBlue;
+  }
+}
+
+// Alertas e callouts
+div.callout-note {
+  border-left-color: $crystalBlue;
+  
+  .callout-header {
+    background-color: rgba($crystalBlue, 0.1);
+  }
+}
+
+div.callout-important {
+  border-left-color: $autumnRed;
+  
+  .callout-header {
+    background-color: rgba($autumnRed, 0.1);
+  }
+}
+
+div.callout-tip {
+  border-left-color: $springGreen;
+  
+  .callout-header {
+    background-color: rgba($springGreen, 0.1);
+  }
+}
+
+div.callout-caution {
+  border-left-color: $roninYellow;
+  
+  .callout-header {
+    background-color: rgba($roninYellow, 0.1);
+  }
+}
+
+// Seleção de texto
+::selection {
+  background: $selection-bg;
+  color: $fujiWhite;
+}
+
+// Responsividade
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background-color: $sumiInk-1;
+  }
+}

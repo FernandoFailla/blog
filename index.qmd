@@ -1,0 +1,28 @@
+---
+title: "Fernando F. Foschiani"
+subtitle: "Data Scientist | Machine Learning | Atuário" 
+image: image/profile.jpg 
+about: # https://quarto.org/docs/websites/website-about.html
+  template: jolla
+  links:
+    - icon: github
+      text: Github
+      href: https://github.com
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com
+---
+
+Curioso e feliz, com uma bela namorada e um pc gamer.
+
+## Education
+
+Ciências Atuariais - UNIFESP\| Osasco \| Mar 2019 - Dez 2023
+
+## Experience
+
+Lexis Nexis Risk Solutions \| Data Scientist II \| Mai 2024 - o momento
+
+Bradesco Seguros \| Cientista de Dados Junior \| Ago 2022 - Mai 2024
+
+Bradesco \| Estagiario \| Mar 2021 - Ago 2022
