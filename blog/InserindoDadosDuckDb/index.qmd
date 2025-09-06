@@ -3,6 +3,7 @@ title: "Como inserir dados no DuckDB com R?"
 author: "Fernando F. Foschiani"
 date: "2024-11-24"
 image: "cover.jpg"
+draft: true
 categories:
   - R
   - DuckDB
