@@ -1,0 +1,116 @@
+---
+title: "Como inserir dados no DuckDB com R?"
+author: "Fernando F. Foschiani"
+date: "2024-11-24"
+image: "cover.jpg"
+categories:
+  - R
+  - DuckDB
+---
+
+::: {.callout-note}
+Esse post faz parte de uma serie de posts sobre Regressao Linear em Big Data. 
+O post principal pode ser encontrado [aqui](https://fernandofoschiani.com/blog/RegressaoLinearBigData/index.html).
+:::
+
+Um ponto bem importante para comecar a responder o tema desse post, e na realidade, bem intuitivo, precisamos de uma base de dados que **JUSTIFIQUEM** o DuckDB.
+
+E acredito que se voce chegou por aqui, voce deve estar de olhos nas principais habilidades do PatoDB:
+
+- Processamento de bases de dados maior que a memoria RAM.
+- E MUITA VELOCIDADE.
+
+Entao inicialmente, caso sua base de dados seja pequena, e voce nao ira realizar operacoes intensivas de analise dados, talvez voce possa simplificar o seu workflow ao nao utilizar o DuckDB.
+
+Mas como aqui, estamos para uma demonstracao, irei orgulhar os professores de analise de dados da UNIFESP, e extender o uso de uma base que ja colocou os incriveis notebook de 4gb de RAM de toda a turma para chorar no projeto de conclusao da materia. **Os microdados do ENEM**.
+
+## Prepare a Internet !!!
+
+Os microdados do ENEM sao bases de dados fornecidos Ministerio da Saude, e sao o menor nivel de desagregacao de dados recolhido pelo exame, ou seja, sao meio pesadinhos, tendo em media a base de cada ano uns 2GB.Lembro que durante meu curso de ciencias atuarias, muitos alunos nao conseguiram carregar um unico ano na memoria de seus notebooks, e tiveram que recorrer a utilizarem os computadores da universidade. Mas eu estou aqui para valorizar todos os PCs da xuxa, e botar todo hardware para brilhar com o DuckDB.
+
+Entao, para comecar quebrando tudo, vamos baixar a base de dados do ENEM dos ultimos 5 anos, que pode ser encontrada [aqui](https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos/microdados/enem).
+
+Para isso vamos criar uma funcao bem simples para baixar os arquivos, e depois descompacta-los, e se sua Internet for da Claro igual a minha, voce vai ter que aumentar o tempo de espera ate dar timeout do download. 
+
+```{r}
+options(timeout = 1200)
+
+download_enem <- function(years){
+  # Cria diretorios se nao existirem
+  dir.create("data", showWarnings = FALSE)
+  dir.create("data/raw", showWarnings = FALSE)
+  dir.create("data/unzip", showWarnings = FALSE)
+
+  existing_files <- list.files("data/raw")
+  if(length(existing_files) > 0) {
+    warning("Arquivos já existem na pasta data/raw")
+    print(existing_files)
+    return(NULL)
+  }
+
+  # Baixa os arquivos
+  for(year in years){
+    url <- paste0(
+      "https://download.inep.gov.br/microdados/microdados_enem_",
+      year, ".zip"
+    )
+    download.file(url, destfile = paste0("data/raw/microdados_enem_", year, ".zip"))
+    unzip(paste0("data/raw/microdados_enem_", year, ".zip"), 
+          exdir = "data/unzip")
+  }
+}
+```
+
+Agora vamos baixar os arquivos dos ultimos 5 anos.
+
+```{r}
+#| warning: FALSE
+#| message: FALSE
+#| results: "hide"
+download_enem(2019:2023)
+```
+
+Podemos, entao, verificar se os arquivos foram baixados corretamente.
+
+```{r}
+list.files("data/unzip/DADOS")
+```
+
+Os dados que estamos interessados sao os arquivos `MICRODADOS_ENEM_*.csv`, podemos entao selecionar apenas esses arquivos em uma variavel para utilizarmos na etapa de ingestao do DuckDB.
+
+```{r}
+# Parametro pattern para utilizar regex para selecao de arquivos
+# Parametro full.names para retornar o caminho completo do arquivo
+microdados_enem <- list.files(
+  "data/unzip/DADOS",
+  pattern = "MICRODADOS_ENEM_.*.csv",
+  full.names = TRUE
+)
+microdados_enem
+```
+
+## Agora comeca a diversao 😃
+
+Bom, eu menti,antes de comecar realmente a diversao, e mostrar o passo a passo de como exatamente fazer esse caso especifico, gostaria de passar algumas referencias que vieram do meu looping infinito de acompanhar linkedin e ver tutoriais do youtube.
+
+As duas principais ferramentas dessa etapa exatamente, sao o Arrow e o DuckDB,que interagem com o R atraves de bibliotecas com o mesmo nome. Outro pacote importante e o DBI, responsavel por ajudar o R a ser conectar com diferntes DBMS (Data Base Management Systems).
+
+- O livro [R for Data Science (2e)](https://r4ds.hadley.nz/), apresenta no capitulo [21](https://r4ds.hadley.nz/databases) como interagir com banco de dados atraves do DBI, e no capitulo [22](https://r4ds.hadley.nz/arrow) como utilizar arrow para lidar com volumes de dados maiores do que a memoria. Em ambos, apresenta um pouco sobre como DuckDB pode ser utilizado nestes workflows.
+
+- Um [palestra introdutoria](https://www.youtube.com/watch?v=s-6aQ2hYp_E&t=5308s) dada pela Nic Crane e Steph Hazlitt, bem completo e com bastantes exemplos hands-on para quem prefere uma abordagem mais em video. A propria Nic Crane,disponibiliza um livro sobre como [Escalar R com Arrow](https://arrowrbook.com/), eu particularmente nao dei muito mais do que uma folheada, mas parece ter sido feito com bastante empenho e carinho. 
+
+- Eu particularmente nao tenho muitas referencias mais aprofundadas sobre o duckdb em R, mas eu gosto bastante das apresentacoes do Hannes Mühleisen, especial sua apresentacao na [posit::conf(2023)](https://www.youtube.com/watch?v=9OFzOvV-to4&pp=ygUQcG9zaXQgcGJjIGR1Y2tkYg%3D%3D) que serve como uma otima introducao, e sua ultima apresentacao na [posit::conf(2024)](https://www.youtube.com/watch?v=GELhdezYmP0&t=2910s&pp=ygUQcG9zaXQgcGJjIGR1Y2tkYg%3D%3D) com um aprofundamento mais teorico, e introduz alguns novos conceitos interessantes como arquivos .duckdb . Ultima recomendacao em relacao ao DuckDB, que remete as escolhas feitas por essa publicacao e um post feito por Josiah Parry comparando [{duckdb} vs. {duckplyr}](https://josiahparry.com/posts/2024-05-24-duckdb-and-r#my-verdict), esse post explica os motivos por eu nunca optar pela utilizacao do duckplyr para analises de grandes conjuntos de dados.
+
+Nenhuma dessas referencias sao necessarias para continuuar a leitura desse post, mas sao otimas para quem quiser ir alem do caso em especifico que irei mostrar.
+
+## Agora sim: A DIVERSAO 🎊
+Para ler todos os arquivos dentro do R, vamos utilizar o pacote `arrow`, que nos permite ler arquivos CSV e transforma-los em um objeto `arrow::Table`.
+```{r}
+library(arrow)
+df <- arrow::open_dataset(
+  microdados_enem,
+  col_types = schema(ISBN = string()),
+  format = "csv",
+  delimiter = ";"
+)
+```
