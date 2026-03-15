@@ -1,0 +1,52 @@
+---
+title: "Do Problema ao Plano"
+subtitle: "Ferramentas e Rituais para o Design de Projetos de Machine Learning"
+author: "Fernando F. Foschiani"
+date: "2026-03-07"
+draft: false 
+categories:
+  - Project Management 
+  - Machine Learning
+bibliography: references.bib
+---
+
+Muito se fala sobre o ciclo de vida de projetos de Machine Learning. O CRISP-DM, por exemplo, define como sua primeira fase o *Business Understanding*, que levanta questões fundamentais como:
+
+- Qual é o problema a ser resolvido?
+- Quais são os objetivos?
+- Quais são as métricas e critérios de sucesso?
+- Quais são as hipóteses?
+- Quais são os recursos necessários e disponíveis?
+- Quais são os possíveis riscos e impeditivos?
+- Qual é o custo esperado e o ROI?
+- Quem são os stakeholders?
+- Quais são os dados necessários e disponíveis?
+- Quais são as variáveis relevantes?
+
+Porém durante minhas pesquisas, nunca ficou exatamente claro COMO responder essas perguntas. Este post tem como objetivo reunir materiais que discutam processos, ferramentas e práticas que auxiliem a responder essas questões. Tentando, ao final, unificar essas práticas em um processo reprodutível e flexível para planejar e documentar projetos de Machine Learning.
+
+# Quando Planejar e Quando Não Planejar?
+
+Nem todo projeto de machine learning exige o mesmo nível de planejamento. O fator decisivo é o grau de ambiguidade: se o problema e a solução são bem compreendidos, há pouco valor em um processo de planejamento extenso [@ubl2020designdocs]. Da mesma forma, mudanças incrementais — como adicionar uma feature a um modelo existente ou retreinar um pipeline já estabelecido — não justificam um design doc completo, pois o custo de documentação superaria o benefício [@yan2021mldocs].
+
+Na prática, a decisão pode ser orientada por critérios como:
+
+- **O problema ou a solução são ambíguos?** Se não há clareza sobre a abordagem, um planejamento mais detalhado ajuda a reduzir riscos antes da implementação.
+- **O impacto é alto?** Projetos que afetam diretamente o usuário final ou que possuem dependências com outros sistemas merecem maior rigor.
+- **O esforço de implementação é significativo?** Iniciativas que envolvem múltiplas equipes ou se estendem por semanas ou meses se beneficiam de um documento de design formal.
+
+Para projetos que não atendem a esses critérios — tarefas rotineiras em organizações com fluxos de ML já consolidados — um planejamento mais enxuto é suficiente: um *mini design doc* de uma a três páginas, focado apenas no que difere do fluxo padrão [@ubl2020designdocs]. Já para projetos novos, exploratórios ou de alto impacto, investir tempo em um planejamento detalhado é essencial para alinhar equipes e mitigar riscos desde o início.
+
+
+# Por que projetos falham e desperdicio de tempo
+
+# 5 Fases para planejar um projeto
+## 1. Definir o problema
+
+## 2. Definir Metricas
+
+## 3. Recursos e Requisitos
+
+## 4. Dados e Variaveis
+
+## 5.Stakeholders 
