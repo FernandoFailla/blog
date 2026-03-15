@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Fernando F. Foschiani">
+<meta name="dcterms.date" content="2026-03-07">
 
-<title>Blog – Home</title>
+<title>Do Problema ao Plano – Home</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,29 +25,46 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ce5ec4be691f12c077dd21df3252140.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-476b15382f7a519999bec0f234813293.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-8ce5ec4be691f12c077dd21df3252140.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-476b15382f7a519999bec0f234813293.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -73,67 +92,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-subtitle','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<meta property="og:title" content="Blog – Home">
+<meta property="og:title" content="Do Problema ao Plano – Home">
+<meta property="og:description" content="Ferramentas e Rituais para o Design de Projetos de Machine Learning">
 <meta property="og:site_name" content="Home">
 </head>
 
@@ -144,7 +106,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Home</span>
     </a>
   </div>
@@ -155,13 +117,13 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
+    <a class="nav-link" href="../../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
 </ul>
@@ -181,14 +143,31 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
-</div>
+<h1 class="title">Do Problema ao Plano</h1>
+<p class="subtitle lead">Ferramentas e Rituais para o Design de Projetos de Machine Learning</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Project Management</div>
+    <div class="quarto-category">Machine Learning</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Fernando F. Foschiani </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 7, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -198,43 +177,64 @@ window.Quarto = {
 </header>
 
 
+<p>Muito se fala sobre o ciclo de vida de projetos de Machine Learning. O CRISP-DM, por exemplo, define como sua primeira fase o <em>Business Understanding</em>, que levanta questões fundamentais como:</p>
+<ul>
+<li>Qual é o problema a ser resolvido?</li>
+<li>Quais são os objetivos?</li>
+<li>Quais são as métricas e critérios de sucesso?</li>
+<li>Quais são as hipóteses?</li>
+<li>Quais são os recursos necessários e disponíveis?</li>
+<li>Quais são os possíveis riscos e impeditivos?</li>
+<li>Qual é o custo esperado e o ROI?</li>
+<li>Quem são os stakeholders?</li>
+<li>Quais são os dados necessários e disponíveis?</li>
+<li>Quais são as variáveis relevantes?</li>
+</ul>
+<p>Porém durante minhas pesquisas, nunca ficou exatamente claro COMO responder essas perguntas. Este post tem como objetivo reunir materiais que discutam processos, ferramentas e práticas que auxiliem a responder essas questões. Tentando, ao final, unificar essas práticas em um processo reprodutível e flexível para planejar e documentar projetos de Machine Learning.</p>
+<section id="quando-planejar-e-quando-não-planejar" class="level1">
+<h1>Quando Planejar e Quando Não Planejar?</h1>
+<p>Nem todo projeto de machine learning exige o mesmo nível de planejamento. O fator decisivo é o grau de ambiguidade: se o problema e a solução são bem compreendidos, há pouco valor em um processo de planejamento extenso <span class="citation" data-cites="ubl2020designdocs">(<a href="#ref-ubl2020designdocs" role="doc-biblioref">Ubl 2020</a>)</span>. Da mesma forma, mudanças incrementais — como adicionar uma feature a um modelo existente ou retreinar um pipeline já estabelecido — não justificam um design doc completo, pois o custo de documentação superaria o benefício <span class="citation" data-cites="yan2021mldocs">(<a href="#ref-yan2021mldocs" role="doc-biblioref">Yan 2021</a>)</span>.</p>
+<p>Na prática, a decisão pode ser orientada por critérios como:</p>
+<ul>
+<li><strong>O problema ou a solução são ambíguos?</strong> Se não há clareza sobre a abordagem, um planejamento mais detalhado ajuda a reduzir riscos antes da implementação.</li>
+<li><strong>O impacto é alto?</strong> Projetos que afetam diretamente o usuário final ou que possuem dependências com outros sistemas merecem maior rigor.</li>
+<li><strong>O esforço de implementação é significativo?</strong> Iniciativas que envolvem múltiplas equipes ou se estendem por semanas ou meses se beneficiam de um documento de design formal.</li>
+</ul>
+<p>Para projetos que não atendem a esses critérios — tarefas rotineiras em organizações com fluxos de ML já consolidados — um planejamento mais enxuto é suficiente: um <em>mini design doc</em> de uma a três páginas, focado apenas no que difere do fluxo padrão <span class="citation" data-cites="ubl2020designdocs">(<a href="#ref-ubl2020designdocs" role="doc-biblioref">Ubl 2020</a>)</span>. Já para projetos novos, exploratórios ou de alto impacto, investir tempo em um planejamento detalhado é essencial para alinhar equipes e mitigar riscos desde o início.</p>
+</section>
+<section id="por-que-projetos-falham-e-desperdicio-de-tempo" class="level1">
+<h1>Por que projetos falham e desperdicio de tempo</h1>
+</section>
+<section id="fases-para-planejar-um-projeto" class="level1">
+<h1>5 Fases para planejar um projeto</h1>
+<section id="definir-o-problema" class="level2">
+<h2 class="anchored" data-anchor-id="definir-o-problema">1. Definir o problema</h2>
+</section>
+<section id="definir-metricas" class="level2">
+<h2 class="anchored" data-anchor-id="definir-metricas">2. Definir Metricas</h2>
+</section>
+<section id="recursos-e-requisitos" class="level2">
+<h2 class="anchored" data-anchor-id="recursos-e-requisitos">3. Recursos e Requisitos</h2>
+</section>
+<section id="dados-e-variaveis" class="level2">
+<h2 class="anchored" data-anchor-id="dados-e-variaveis">4. Dados e Variaveis</h2>
+</section>
+<section id="stakeholders" class="level2">
 
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="UHJvamVjdCUyME1hbmFnZW1lbnQlMkNNYWNoaW5lJTIwTGVhcm5pbmc=" data-listing-date-sort="1772852400000" data-listing-file-modified-sort="1773145539809" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="384">
-<div class="thumbnail"><a href="../blog/PlanejamentosDeProjetosdeML/index.html" class="no-external">
+</section>
+</section>
 
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="../blog/PlanejamentosDeProjetosdeML/index.html" class="no-external">Planejamentos de Projetos de Machine Learning</a>
-</h3>
-<div class="listing-subtitle">
-<a href="../blog/PlanejamentosDeProjetosdeML/index.html" class="no-external">Ferramentas e Rituais para o Design de Projetos de Machine Learning</a>
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">5.Stakeholders</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-ubl2020designdocs" class="csl-entry" role="listitem">
+Ubl, Malte. 2020. <span>“Design Docs at Google.”</span> <a href="https://www.industrialempathy.com/posts/design-docs-at-google/">https://www.industrialempathy.com/posts/design-docs-at-google/</a>.
 </div>
-<div class="delink listing-description"><a href="../blog/PlanejamentosDeProjetosdeML/index.html" class="no-external">
-Referencias sao <span class="citation" data-cites="tan2024effective">(Tan et al. 2024)</span>, <span class="citation" data-cites="huyen2022designing">(Huyen 2022)</span>, <span class="citation" data-cites="wilson2022mle">(Wilson 2022)</span>
-</a></div>
+<div id="ref-yan2021mldocs" class="csl-entry" role="listitem">
+Yan, Eugene. 2021. <span>“How to Write Design Docs for Machine Learning Systems.”</span> <a href="https://eugeneyan.com/writing/ml-design-docs/">https://eugeneyan.com/writing/ml-design-docs/</a>.
 </div>
-<div class="metadata">
-<a href="../blog/PlanejamentosDeProjetosdeML/index.html" class="no-external">
-<div class="listing-date">
-Mar 7, 2026
-</div>
-<div class="listing-author">
-Fernando F. Foschiani
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
